@@ -1,0 +1,27 @@
+body{
+    background-color: #749162;
+    color:  #3a691d;
+}
+div{
+    border: 3px solid #e4fcd5;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #e4fcd5;
+    margin: 10px;
+}
+pre{
+    border: 3px solid #e4fcd5;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #e4fcd5;
+    margin: 10px;
+    
+}
+img{
+    margin-top: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 98%;
+    height: 550px;
+}
+

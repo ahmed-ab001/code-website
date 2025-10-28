@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program2</title>
+    <link rel="stylesheet" href="program.css">
+</head>
+<body>
+    <div>
+        <h1>Program 2</h1>
+        <h2>Develop the HTML page named as “Table.html” to display your class time table.</h2>
+        <h3>
+            <ol type="a">
+                <li>Provide the title as Time Table with table header and table footer, row-span and col-span etc.</li>
+                <li>Provide various colour options to the cells (Highlight the lab hours and elective hours with different colours).</li>
+                <li>Provide colour options for rows.</li>
+            </ol>
+            
+        </h3>
+    </div>
+    <pre>
+&lt;!DOCTYPE html&gt; 
+&lt;html lang="en"&gt; 
+&lt;head&gt; 
+&lt;meta charset="UTF-8"&gt; 
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;Time Table&lt;/title&gt; 
+&lt;style&gt; 
+body { 
+font-family: Arial, sans-serif; 
+line-height: 1.6; 
+margin : 0;
+ padding : 20px; 
+        } 
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        } 
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            text-align: center; 
+        } 
+        th { 
+            background-color: #f2f2f2; 
+        } 
+        .lab-hours { 
+            background-color: #ffcccb; 
+        } 
+        .elective-hours { 
+            background-color: #90ee90; 
+        }
+ .lunch { 
+            background-color: #ffd700; 
+        } 
+        .odd-row { 
+            background-color: #f8f8f8; 
+        } 
+        tfoot { 
+            background-color: #e6e6e6; 
+            font-weight: bold; 
+        } 
+    &lt;/style&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+    &lt;table&gt; 
+        &lt;thead&gt; 
+            &lt;tr&gt; 
+                &lt;th colspan="7"&gt;Class Time Table&lt;/th&gt; 
+            &lt;/tr&gt; 
+            &lt;tr&gt; 
+                &lt;th&gt;Time&lt;/th&gt;
+&lt;th&gt;Monday&lt;/th&gt; 
+                &lt;th&gt;Tuesday&lt;/th&gt; 
+                &lt;th&gt;Wednesday&lt;/th&gt; 
+                &lt;th&gt;Thursday&lt;/th&gt; 
+                &lt;th&gt;Friday&lt;/th&gt; 
+                &lt;th&gt;Saturday&lt;/th&gt; 
+            &lt;/tr&gt; 
+        &lt;/thead&gt; 
+        &lt;tbody&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;9:00 - 10:00&lt;/td&gt; 
+                &lt;td&gt;Math&lt;/td&gt; 
+                &lt;td&gt;English&lt;/td&gt; 
+                &lt;td&gt;Science&lt;/td&gt; 
+                &lt;td&gt;History&lt;/td&gt; 
+                &lt;td&gt;Geography&lt;/td&gt; 
+                &lt;td rowspan="6"&gt;No Classes&lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr class="odd-row"&gt; 
+                &lt;td&gt;10:00 - 11:00&lt;/td&gt;
+&lt;td&gt;Physics&lt;/td&gt; 
+                &lt;td&gt;Chemistry&lt;/td&gt; 
+                &lt;td&gt;Biology&lt;/td&gt; 
+                &lt;td class="elective-hours"&gt;Computer Science&lt;/td&gt; 
+                &lt;td class="elective-hours"&gt;Art&lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;11:00 - 12:00&lt;/td&gt; 
+                &lt;td class="lab-hours" colspan="2"&gt;Physics Lab&lt;/td&gt; 
+                &lt;td class="lab-hours" colspan="2"&gt;Chemistry Lab&lt;/td&gt; 
+                &lt;td class="lab-hours"&gt;Biology Lab&lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr class="odd-row"&gt; 
+                &lt;td&gt;12:00 - 13:00&lt;/td&gt; 
+                &lt;td class="lunch" colspan="5"&gt;Lunch Break&lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr&gt; 
+                &lt;td&gt;13:00 - 14:00&lt;/td&gt; 
+                &lt;td&gt;Literature&lt;/td&gt; 
+                &lt;td&gt;Math&lt;/td&gt;
+&lt;td&gt;English&lt;/td&gt; 
+                &lt;td&gt;Physics&lt;/td&gt; 
+                &lt;td&gt;Chemistry&lt;/td&gt; 
+            &lt;/tr&gt; 
+            &lt;tr class="odd-row"&gt; 
+                &lt;td&gt;14:00 - 15:00&lt;/td&gt; 
+                &lt;td class="elective-hours"&gt;Music&lt;/td&gt; 
+                &lt;td class="elective-hours"&gt;Drama&lt;/td&gt; 
+                &lt;td class="lab-hours" colspan="3"&gt;Computer Lab&lt;/td&gt; 
+            &lt;/tr&gt; 
+        &lt;/tbody&gt; 
+        &lt;tfoot&gt; 
+            &lt;tr&gt; 
+                &lt;td colspan="7"&gt;* Lab hours are highlighted in pink, elective hours in light 
+green&lt;/td&gt; 
+            &lt;/tr&gt; 
+        &lt;/tfoot&gt; 
+    &lt;/table&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;
+    </pre>
+    <div>
+        <h2>Output</h2>
+    </div>
+    <img src="program2output.png" alt="Program2Output">
+
+</body>
+</html>
