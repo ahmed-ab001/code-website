@@ -17,6 +17,26 @@ pre{
     margin: 10px;
     
 }
+.homebutton{
+    margin: 10px auto;
+    margin-right: 10px;
+    padding: 20px;
+    background-color:  #5c913b;
+    color: #F0F0F0;
+    border-radius: 10px ;
+    height: 5px;
+    padding-top: 5px;
+    border: none;
+}
+button:hover{
+    background-color: #3f6926;
+    cursor:pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 img{
     margin-top: 10px;
     margin: 10px;
@@ -24,4 +44,74 @@ img{
     width: 98%;
     height: 550px;
 }
+/* the following styling is  for the copy button */
+.copy-btn {
+    background:#749162;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.1s;
+    color: #e4fcd5;
+    padding-left: 1;
+}
 
+.copy-btn:hover {
+    background: #b4e496;
+    color: #4f723a;
+}
+
+.copy-icon, .check-icon {
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    display: inline-block;
+}
+
+.copy-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v16h13a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/></svg>');
+}
+
+.check-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="green" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.285 2l-11.2 11.3-5.37-5.382L1 10.64l8.085 8.085L22.7 5.115 20.285 2z"/></svg>');
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #323232;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.toast.show {
+    opacity: 1;
+}
+/* footer styling */
+footer{
+    background-color: #F0F0F0;
+    color:#5c913b;
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+footer span{
+    background-color: #5c913b;
+    color: #F0F0F0;
+    border-radius: 3px;
+}
+h5{
+    padding-top: 6px;
+    font-size: large;
+}
