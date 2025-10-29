@@ -5,16 +5,17 @@ body{
 div{
     border: 3px solid #e4fcd5;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     background-color: #e4fcd5;
-    margin: 10px;
+    margin: 10px auto;
+    width: 95vw;
 }
 pre{
     border: 3px solid #e4fcd5;
     border-radius: 10px;
     padding: 10px;
     background-color: #e4fcd5;
-    margin: 10px;
+    margin: 10px auto;
     width:fit-content;
     
     
@@ -45,7 +46,7 @@ img{
     margin: 10px;
     border-radius: 10px;
     width: 98%;
-    height: auto;
+    height: 50%;
 }
 /* the following styling is  for the copy button */
 .copy-btn {
