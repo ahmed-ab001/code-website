@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program2</title>
-    <link rel="stylesheet" href="program.css">
-</head>
-<body>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
     <div>
-        <h1>Program 2&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="homebutton"><a href="index.html">Home</a></button></h1>
-        <h2>Develop the HTML page named as “Table.html” to display your class time table.</h2>
-        <h3>
-            <ol type="a">
-                <li>Provide the title as Time Table with table header and table footer, row-span and col-span etc.</li>
-                <li>Provide various colour options to the cells (Highlight the lab hours and elective hours with different colours).</li>
-                <li>Provide colour options for rows.</li>
-            </ol>
-            
-        </h3>
-    </div>
-    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 2
+      </h1>
 
-        <h2>CODE   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="copyBtn" class="copy-btn">
-    <span class="copy-icon" id="copyIcon"></span>
-    <span id="copyText">Copy Code</span>
-</button></h2>
-         
+      <h2>
+        Develop the HTML page named as “Table.html” to display your class time
+        table.
+      </h2>
+      <h3>
+        <ol type="a">
+          <li>
+            Provide the title as Time Table with table header and table footer,
+            row-span and col-span etc.
+          </li>
+          <li>
+            Provide various colour options to the cells (Highlight the lab hours
+            and elective hours with different colours).
+          </li>
+          <li>Provide colour options for rows.</li>
+        </ol>
+      </h3>
     </div>
-    <pre id="codeBlock">&lt;!DOCTYPE html&gt;
+    <div>
+      <h2>
+        CODE &nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <pre id="codeBlock">
+&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt; 
 &lt;head&gt; 
 &lt;meta charset="UTF-8"&gt; 
@@ -141,16 +158,41 @@ green&lt;/td&gt;
 &lt;/html&gt;
     </pre>
     <div>
-        <h2>Output</h2>
+      <h2>Output</h2>
     </div>
-    <img src="program2output.png" alt="Program2Output">
-   
+    <img src="program2output.png" alt="Program2Output" />
+    <div id="toast" class="toast">Copied!</div>
 
-<div id="toast" class="toast">Copied!</div>
-
-<script src="copycode.js"></script>
- <footer>
-         <h5>Made with love by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    <footer>
+      <h5>Made with love by <span>&nbsp;Ahmed&nbsp;</span></h5>
     </footer>
-</body>
+    <script>
+           
+
+      document.getElementById("copyBtn").addEventListener("click", function() {
+          const code = document.getElementById("codeBlock").innerText;
+
+          const tempTextArea = document.createElement("textarea");
+          tempTextArea.value = code;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempTextArea);
+
+          const toast = document.getElementById("toast");
+          const copyText = document.getElementById("copyText");
+          const copyIcon = document.getElementById("copyIcon");
+
+          copyText.textContent = "Copied!";
+          copyIcon.className = "check-icon";
+          toast.classList.add("show");
+
+          setTimeout(() => {
+              copyText.textContent = "Copy Code";
+              copyIcon.className = "copy-icon";
+              toast.classList.remove("show");
+          }, 1500);
+      });
+    </script>
+  </body>
 </html>

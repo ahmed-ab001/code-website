@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program5</title>
+    <link rel="stylesheet" href="program.css">
+</head>
+<body>
+    <div>
+        <h1><button class="homebutton" style="position: absolute; left: 60;"><a href="index.html">Home</a></button><br><br>
+            Program 5
+            </h1>
+            
+             
+        <h2>Develop HTML page named as "newspaper.html" having variety of HTML semantic elements with background colors, text-colors abd size for figure, table, aside, section, article,header, footer.</h2>
+        
+    </div>
+    <div>
+
+        <h2>CODE &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+            <button id="copyBtn" class="copy-btn">
+    <span class="copy-icon" id="copyIcon" ></span>
+    <span id="copyText">Copy Code</span>
+</button></h2>
+         
+    </div>
+    <pre id="prog5">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;The Deccan Chronicle&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        section {
+            flex: 2;
+            margin-right: 20px;
+        }
+
+        article {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        figcaption {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;The Daily chronicle&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Politics&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Technology&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Sports&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Entertainment&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;article&gt;
+                &lt;h2&gt;Breaking News : Major technological breakthrough.&lt;/h2&gt;
+                &lt;p&gt;scientists hae announced a groundbreaking theory in the field of Quantum Computing , potentially
+                    revolutionizing the tech industry. &lt;/p&gt;
+                &lt;figure&gt;
+                    &lt;img src="quantumcomputer.jpg" alt="Quantum Computer"&gt;
+                    &lt;figcaption&gt;A state-of-art quantum computer at the research facility.&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;h2&gt;Local Sports Team Wins Championship&lt;/h2&gt;
+                &lt;p&gt;In a thrilling match, our local team secured victory in the national Championship, bringing pride to
+                    our city&lt;/p&gt;
+                &lt;table&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Team&lt;/th&gt;
+                        &lt;th&gt;Score&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Local Heroes&lt;/td&gt;
+                        &lt;td&gt;3&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Visiting Challengers&lt;/td&gt;
+                        &lt;td&gt;2&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+        &lt;aside&gt;
+            &lt;h3&gt;Weather Update&lt;/h3&gt;
+            &lt;p&gt;Expect sunny skies with a high of 75°F(24°C)today.&lt;/p&gt;
+            &lt;h3&gt;Upcoming Events&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;City Festival - This Weekend&lt;/li&gt;
+                &lt;li&gt;Teh Conference - Next Month&lt;/li&gt;
+                &lt;li&gt;Charity Run - In Two Weeks&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2023 The Deccan Chronicle. All Rights Reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </pre>
+    <div>
+        <h2>Output</h2>
+    </div>
+    <img src="program5output.png" alt="Program2Output">
+   
+
+<div id="toast" class="toast">Copied!</div>
+
+<script src="copycode.js"></script>
+ <footer>
+         <h5>Made with love by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+</body>
+</html>
