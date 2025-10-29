@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program1</title>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 1
+      </h1>
+
+      <h2>
+        Develop the HTML page named as “Myfirstwebpage.html”. Add the following
+        tags with relevant content.
+         
+      </h2>
+      <h3>
+        <ol>
+            <li>Set the title of the page as “My First
+        Web Page”</li><br>
+        <li>Within the body use the following tags:</li><br>
+          
+          <ol type="a">
+            <li>Moving text =“Basic HTML Tags”</li>
+            <li>Different heading tags (h1 to h6) </li>
+            <li> Paragraph</li>
+            <li>Horizontal line</li>
+            <li> Line Break </li>
+            <li>Block Quote</li>
+            <li>Pre tag </li>
+            <li>Different
+        Logical Style(&lt; b&gt;,&lt;u &gt;,&lt; sub &gt;,&lt; sup &gt; etc.)
+          </ol>
+        
+        </li>
+        
+        </ol>
+        
+      </h3>
+    </div>
+    <div>
+      <h2>
+        CODE &nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <pre id="prog5">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+     &lt;style&gt;
+        body{
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+       &lt;marquee &gt;Basic HTML Tags&lt;/marquee&gt;
+       &lt;h1&gt;This is Heading 1.&lt;/h1&gt;
+       &lt;h2&gt;This is Heading 2.&lt;/h2&gt;
+       &lt;h3&gt;This is Heading 3.&lt;/h3&gt;
+       &lt;h4&gt;This is Heading 4.&lt;/h4&gt;
+       &lt;h5&gt;This is Heading 5.&lt;/h5&gt;
+       &lt;h6&gt;This is Heading 6.&lt;/h6&gt;
+       &lt;p&gt;This is a paragraph. It demonstrates the use of paragraph tag in HTML&lt;/p&gt;
+       &lt;hr&gt;
+       &lt;b&gt;Bold Text&lt;/b&gt;&lt;br&gt;
+       &lt;i&gt;Italic Text&lt;/i&gt;&lt;br&gt;
+       &lt;u&gt;Underlined text&lt;/u&gt;&lt;br&gt;
+       &lt;strong&gt;Strong Text&lt;/strong&gt;&lt;br&gt;
+       &lt;em&gt;Emphasized Text&lt;/em&gt;&lt;br&gt;
+       text with &lt;sub&gt;subscript&lt;/sub&gt; and &lt;sup&gt;superscript&lt;/sup&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <div>
+      <h2>Output</h2>
+    </div>
+    <img src="program1output.png" alt="Program2Output" />
+
+    <div id="toast" class="toast">Copied!</div>
+
+    <footer>
+      <h5>Made with love by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
