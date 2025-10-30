@@ -2,23 +2,23 @@
 
 
 body{
-    background-color: #749162;
-    color:  #3a691d;
+    background-color: whitesmoke;
+    color:  #630d1d;
     font-family:'Times New Roman', Times, serif;
 }
 div{
-    border: 3px solid #e4fcd5;
+    border: 3px solid #630d1d;
     border-radius: 10px;
     padding: 10px;
-    background-color: #e4fcd5;
+    background-color: whitesmoke;
     margin: 5px auto;
     /* width: 98vw; */
 }
 pre{
-    border: 3px solid #e4fcd5;
+    border: 3px solid whitesmoke;
     border-radius: 10px;
     padding: 10px;
-    background-color: #e4fcd5;
+    background-color: whitesmoke;
     margin: 10px auto;
     width:fit-content;
     
@@ -28,8 +28,8 @@ pre{
     margin: 10px auto;
     margin-right: 10px;
     padding: 20px;
-    background-color:  #5c913b;
-    color: #F0F0F0;
+    background-color:  whitesmoke;
+    color: whitesmoke;
     border-radius: 10px ;
     height: 5px;
     padding-top: 5px;
@@ -37,12 +37,15 @@ pre{
     height: 5px;
 }
 button:hover{
-    background-color: #3f6926;
+    background-color: rgb(243, 141, 141);
     cursor:pointer;
 }
 a{
     text-decoration: none;
-    color: inherit;
+    color: maroon;
+}
+div.scroll-box{
+    border: 3px solid ;
 }
 
 img{
@@ -54,7 +57,7 @@ img{
 }
 /* the following styling is  for the copy button */
 .copy-btn {
-    background:#749162;
+    background:maroon;
     border: none;
     cursor: pointer;
     padding: 6px 10px;
@@ -64,13 +67,14 @@ img{
     align-items: center;
     gap: 6px;
     transition: background 0.1s;
-    color: #e4fcd5;
+    color: whitesmoke;
     padding-left: 1;
 }
 
 .copy-btn:hover {
-    background: #b4e496;
-    color: #4f723a;
+    background:whitesmoke;
+    color: maroon;
+    
 }
 
 .copy-icon, .check-icon {
@@ -105,8 +109,8 @@ img{
 }
 /* footer styling */
 footer{
-    background-color: #F0F0F0;
-    color:#5c913b;
+    background-color: maroon;
+    color: whitesmoke;
     height: 30px;
     font-size: large;
     text-align: center;
@@ -115,8 +119,8 @@ footer{
     margin-bottom: 5px;
 }
 footer span{
-    background-color: #5c913b;
-    color: #F0F0F0;
+    background-color: whitesmoke;
+    color: maroon;
     border-radius: 3px;
 }
 h5{

@@ -1,19 +1,19 @@
 body{
-    background-color: #e4fcd5;
-    color:  #3a691d;
+    background-color: whitesmoke;
+    color:  rgb(156, 2, 2);
     flex-wrap: nowrap;
 }
 header{
-    background-color: #5c913b;
+    background-color: rgb(156, 2, 2);
     text-align: center;
-    color: #F0F0F0;
+    color: whitesmoke;
     border-radius: 3px;
 }
 .program-btn {
   display: inline-block;
   padding: 15px 40px;
-  background-color: #5c913b; /* same green shade */
-  color: #F0F0F0; /* light text */
+  background-color: rgb(156, 2, 2); /* same green shade */
+  color: whitesmoke; /* light text */
   border-radius: 15px; /* smooth corners */
   font-size: 22px;
   font-family: Arial, sans-serif;
@@ -26,14 +26,14 @@ header{
 }
 
 .program-btn:hover {
-  background-color: #4b7d32; /* darker on hover */
+  background-color: rgb(101, 0, 0); /* darker on hover */
   transform: scale(1.03); /* slight pop */
 }
 
 
 footer{
-    background-color: #5c913b;
-    color:#F0F0F0;
+    background-color: rgb(156, 2, 2);
+    color:whitesmoke;
     height: 30px;
     font-size: large;
     text-align: center;
@@ -41,8 +41,8 @@ footer{
 
 }
 footer span{
-    background-color: #e4fcd5;
-    color: #5c913b;
+    background-color: whitesmoke;
+    color: rgb(156, 2, 2);
     border-radius: 2px;
 }
 h5{
