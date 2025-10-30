@@ -9,20 +9,28 @@ header{
     color: #F0F0F0;
     border-radius: 3px;
 }
-button{
-    margin: 10px auto;
-    margin-right: 10px;
-    padding: 20px;
-    background-color:  #5c913b;
-    color: #F0F0F0;
-    border-radius: 10px;
-    font-size: large;
-    border: none;
+.program-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #5c913b; /* same green shade */
+  color: #F0F0F0; /* light text */
+  border-radius: 15px; /* smooth corners */
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin: 10px; /* soft shadow */
 }
-button:hover{
-    background-color: #3f6926;
-    cursor:pointer;
+
+.program-btn:hover {
+  background-color: #4b7d32; /* darker on hover */
+  transform: scale(1.03); /* slight pop */
 }
+
+
 footer{
     background-color: #5c913b;
     color:#F0F0F0;
