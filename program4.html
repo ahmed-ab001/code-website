@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program4</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 4
+      </h1>
+
+      <h2>
+       Develop HTML page named as “registration.html” having variety of HTML input elements with background colors, table for alignment & provide font colors & size using CSS styles.
+
+      </h2>
+      
+    </div>
+    <div>
+      <h2>
+        CODE 
+        <br><br>
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <div class="scroll-box">
+    <pre id="prog5">
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Registration Form&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .form-group textarea {
+            margin-bottom: 10px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Registration Form&lt;/h2&gt;
+        &lt;form action="#" method="post"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+                &lt;input type="text" id="firstName" name="firstName" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="lastName"&gt;Last Name:&lt;/label&gt;
+                &lt;input type="text" id="lastName" name="lastName" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="email"&gt;Email:&lt;/label&gt;
+                &lt;input type="email" id="email" name="email" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="password"&gt;Password:&lt;/label&gt;
+                &lt;input type="password" id="password" name="password" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+                &lt;input type="date" id="dob" name="dob"&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Gender:&lt;/label&gt;
+                &lt;div class="gender-options"&gt;
+                    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+                    &lt;label for="male"&gt;Male&lt;/label&gt;
+                    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+                    &lt;label for="female"&gt;Female&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="country"&gt;Country:&lt;/label&gt;
+                &lt;select id="country" name="country"&gt;
+                    &lt;option value="usa"&gt;USA&lt;/option&gt;
+                    &lt;option value="canada"&gt;Canada&lt;/option&gt;
+                    &lt;option value="uk"&gt;UK&lt;/option&gt;
+                    &lt;option value="india"&gt;India&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label for="bio"&gt;Bio:&lt;/label&gt;
+                &lt;textarea id="bio" name="bio" rows="4"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="button-group"&gt;
+                &lt;input type="submit" value="Register"&gt;
+                &lt;input type="reset" value="Reset"&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </pre>
+  </div>
+  <div><h2>Output</h2></div>
+    <img src="program4output.png" alt="Program4Output" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 💚 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program3</title>
+    <style>
+      .scroll-box {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto; /* only horizontal scroll */
+        overflow-y: hidden; /* no vertical scroll */
+        border: 2px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+      }
+
+      /* --- Code Content --- */
+      pre#prog5 {
+        margin: 0;
+        white-space: pre; /* preserve formatting */
+        word-wrap: normal; /* prevent wrapping */
+        font-family: Consolas, monospace;
+        font-size: 14px;
+      }
+      pre#cssCode {
+        margin: 0;
+        white-space: pre; /* preserve formatting */
+        word-wrap: normal; /* prevent wrapping */
+        font-family: Consolas, monospace;
+        font-size: 14px;
+      }
+      /* --- Responsive tweak for mobile --- */
+      @media (max-width: 600px) {
+        pre#prog5 {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 600px) {
+        pre#cssCode {
+          font-size: 13px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 3
+      </h1>
+
+      <h2>
+        Develop an external style sheet named as “style.css” and provide
+        different styles for h2, h3, hr, p, div, span, time, img & a tags. Apply
+        different CSS selectors for tags and demonstrate the significance of
+        each.
+      </h2>
+    </div>
+    <div>
+      <h2>CODE</h2>
+    </div>
+    <div>
+      <h3>index.html</h3>
+      <br/>
+      <button id="copyBtn" class="copy-btn">
+        <span class="copy-icon" id="copyIcon"></span>
+        <span id="copyText">Copy Code</span>
+      </button>
+    </div>
+    <div class="scroll-box">
+      <pre id="prog5">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Styled HTML Page (No Div)&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h2&gt;Main Heading&lt;/h2&gt;
+    &lt;h3&gt;Subheading&lt;/h3&gt;
+    &lt;hr&gt;
+    &lt;p&gt;This is a paragraph demonstrating the basic text styling applied by CSS.&lt;/p&gt;
+
+    &lt;div&gt;
+        This is a styled &lt;strong&gt;div&lt;/strong&gt; element with padding and a light border. Inside the div, we can also use
+        &lt;span&gt;span elements&lt;/span&gt; that have their own styles, like this bold and orange text.
+    &lt;/div&gt;
+
+    &lt;p&gt;Current time: &lt;time&gt;10:30 AM&lt;/time&gt;&lt;/p&gt;
+
+    &lt;img src="https://gndecb.ac.in/images/logo7.jpg" alt="GNDECB logo"&gt;
+
+    &lt;p&gt;Visit &lt;a href="https://www.youtube.com/"&gt;Youtube&lt;/a&gt; and learn web development.&lt;/p&gt;
+
+    &lt;p class="highlight"&gt;This paragraph is highlighted with a yellow background.&lt;/p&gt;
+    &lt;p class="center"&gt;This text is centered using a class selector.&lt;/p&gt;
+
+    &lt;p id="special-paragraph"&gt;This is a special paragraph with unique styles applied through an ID selector.&lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </pre
+      >
+    </div>
+    <div>
+      <h3>
+        style.css <br /><br />
+
+        <button id="copyCssBtn" class="copy-btn">
+          <span class="copy-icon" id="copyCssIcon"></span>
+          <span id="copyCssText">Copy Code</span>
+        </button>
+      </h3>
+    </div>
+
+    <div class="scroll-box">
+      <pre id="cssCode">
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #34495e;
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: #e74c3c;
+    margin: 20px 0;
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+div {
+    padding: 15px;
+    border: 1px solid #bdc3c7;
+    background-color: #ecf0f1;
+}
+
+span {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+time::before {
+    content: '⏰ ';
+    color: #16a085;
+}
+
+img {
+    margin-left: 15px;
+    height: 300px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #ea0e4c;
+}
+
+a:hover {
+    color: #6200ee;
+    text-decoration: underline;
+}
+
+.highlight {
+    background-color: yellow;
+    padding: 3px;
+}
+
+.center {
+    text-align: center;
+}
+
+#special-paragraph {
+    font-size: 1.2em;
+    color: #8e44ad;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-left: 5px solid #8e44ad;
+}
+
+h2,
+h3,
+p {
+    margin-left: 20px;
+}
+    </pre
+      >
+    </div>
+
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+    <script>
+      //   --- New Copy Button for CSS ---
+      document
+        .getElementById("copyCssBtn")
+        .addEventListener("click", function () {
+          const code = document.getElementById("cssCode").innerText;
+
+          const tempTextArea = document.createElement("textarea");
+          tempTextArea.value = code;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempTextArea);
+
+          const toast = document.getElementById("toast");
+          const copyText = document.getElementById("copyCssText");
+          const copyIcon = document.getElementById("copyCssIcon");
+
+          copyText.textContent = "Copied!";
+          copyIcon.className = "check-icon";
+          toast.classList.add("show");
+
+          setTimeout(() => {
+            copyText.textContent = "Copy Code";
+            copyIcon.className = "copy-icon";
+            toast.classList.remove("show");
+          }, 1500);
+        });
+    </script>
+    <div><h2>Output</h2></div>
+    <img src="program3output.png" alt="Program3Output" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 💚 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+  </body>
+</html>
