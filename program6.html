@@ -3,7 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program6</title>
+    <title>Program1</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
     <link rel="stylesheet" href="program.css" />
   </head>
   <body>
@@ -20,6 +49,8 @@
         the following operations: sum,product, difference, remainder, quotient,
         power, squareroot and square.
       </h2>
+        
+      </h3>
     </div>
     <div>
       <h2>
@@ -32,6 +63,7 @@
         </button>
       </h2>
     </div>
+    <div class="scroll-box">
     <pre id="prog5">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -200,9 +232,7 @@
 &lt;/html&gt;
 
     </pre>
-    <div>
-      <h2>Output</h2>
-    </div>
+  </div>
     <img src="program6output.png" alt="Program2Output" />
 
     <div id="toast" class="toast">Copied!</div>

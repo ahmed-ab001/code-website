@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program2</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
     <link rel="stylesheet" href="program.css" />
   </head>
   <body>
@@ -33,6 +62,10 @@
         </ol>
       </h3>
     </div>
+
+        
+      </h3>
+    </div>
     <div>
       <h2>
         CODE &nbsp;
@@ -44,7 +77,8 @@
         </button>
       </h2>
     </div>
-    <pre id="codeBlock">
+    <div class="scroll-box">
+    <pre id="prog5">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt; 
 &lt;head&gt; 
@@ -156,42 +190,40 @@ green&lt;/td&gt;
     &lt;/table&gt; 
 &lt;/body&gt; 
 &lt;/html&gt;
+
     </pre>
-    <div>
-      <h2>Output</h2>
-    </div>
+  </div>
     <img src="program2output.png" alt="Program2Output" />
+
     <div id="toast" class="toast">Copied!</div>
 
     <footer>
       <h5>Made with love by <span>&nbsp;Ahmed&nbsp;</span></h5>
     </footer>
     <script>
-           
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
 
-      document.getElementById("copyBtn").addEventListener("click", function() {
-          const code = document.getElementById("codeBlock").innerText;
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
 
-          const tempTextArea = document.createElement("textarea");
-          tempTextArea.value = code;
-          document.body.appendChild(tempTextArea);
-          tempTextArea.select();
-          document.execCommand("copy");
-          document.body.removeChild(tempTextArea);
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
 
-          const toast = document.getElementById("toast");
-          const copyText = document.getElementById("copyText");
-          const copyIcon = document.getElementById("copyIcon");
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
 
-          copyText.textContent = "Copied!";
-          copyIcon.className = "check-icon";
-          toast.classList.add("show");
-
-          setTimeout(() => {
-              copyText.textContent = "Copy Code";
-              copyIcon.className = "copy-icon";
-              toast.classList.remove("show");
-          }, 1500);
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
       });
     </script>
   </body>
