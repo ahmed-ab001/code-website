@@ -117,6 +117,7 @@ footer{
     margin: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
+    line-height: 1;
 }
 footer span{
     background-color: whitesmoke;
