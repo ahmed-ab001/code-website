@@ -68,9 +68,7 @@
 &lt;html lang="en"&gt;
   &lt;head&gt;
     &lt;meta charset="UTF-8" /&gt;
-    &lt;meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"/&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
     &lt;title&gt;Simple Calculator&lt;/title&gt;
     &lt;style&gt;
       body {
@@ -127,33 +125,39 @@
     &lt;div class="calculator"&gt;
       &lt;input type="text" id="display" readonly /&gt;
       &lt;div class="buttons"&gt;
+
         &lt;button onclick="appendToDisplay('7')"&gt;7&lt;/button&gt;
         &lt;button onclick="appendToDisplay('8')"&gt;8&lt;/button&gt;
         &lt;button onclick="appendToDisplay('9')"&gt;9&lt;/button&gt;
+
         &lt;button class="operator" onclick="setOperation('+')"&gt;+&lt;/button&gt;
+
         &lt;button onclick="appendToDisplay('4')"&gt;4&lt;/button&gt;
         &lt;button onclick="appendToDisplay('5')"&gt;5&lt;/button&gt;
         &lt;button onclick="appendToDisplay('6')"&gt;6&lt;/button&gt;
-        &lt;button
-          class="operator"
-          onclick="setOperation('-')"&gt;
-          −
-        &lt;/button&gt;
+
+        &lt;button class="operator" onclick="setOperation('-')"&gt;−&lt;/button&gt;
+
         &lt;button onclick="appendToDisplay('1')"&gt;1&lt;/button&gt;
         &lt;button onclick="appendToDisplay('2')"&gt;2&lt;/button&gt;
         &lt;button onclick="appendToDisplay('3')"&gt;3&lt;/button&gt;
+
         &lt;button class="operator" onclick="setOperation('*')"&gt;×&lt;/button&gt;
+
         &lt;button onclick="appendToDisplay('0')"&gt;0&lt;/button&gt;
         &lt;button onclick="appendToDisplay('.')"&gt;.&lt;/button&gt;
+
         &lt;button class="operator" onclick="calculate()"&gt;=&lt;/button&gt;
+
         &lt;button class="operator" onclick="setOperation('/')"&gt;÷&lt;/button&gt;
         &lt;button class="operator" onclick="setOperation('%')"&gt;%&lt;/button&gt;
-        &lt;button class="operator" onclick="setOperation('^')"&gt;
-          x&lt;sup&gt;y&lt;/sup&gt;
-        &lt;/button&gt;
+
+        &lt;button class="operator" onclick="setOperation('^')"&gt;x&lt;sup&gt;y&lt;/sup&gt;&lt;/button&gt;
+
         &lt;button class="operator" onclick="squareRoot()"&gt;√&lt;/button&gt;
         &lt;button class="operator" onclick="square()"&gt;x&lt;sup&gt;2&lt;/sup&gt;&lt;/button&gt;
         &lt;button onclick="clearDisplay()"&gt;C&lt;/button&gt;
+        
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;script&gt;
