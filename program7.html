@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program7</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
+    <link rel="stylesheet" href="program.css" />
+    
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60;">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 7
+      </h1>
+
+      <h2>
+        7.Develop JavaScript program (with HTML/CSS) for:
+      </h2>
+      <h3>
+        <ol type="a">
+            <li>Convert JSON results into a date</li>
+            <li>Converting From JSON To CSV and CSV to JSON</li>
+            <li>Create hash from string using crypto.createHash() method.</li>
+            <li>Converting JSON text to JavaScript Object</li>
+            
+        </ol>
+
+        
+      </h3>
+    </div>
+    <div>
+      <h2>
+        CODE 
+        <br><br>
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <div class="scroll-box">
+    <pre id="prog5">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;JSON & Crypto Demo&lt;/title&gt;
+    &lt;style&gt;
+      body {
+        font-family: Arial;
+        margin: 20px;
+        background: #f4f4f4;
+      }
+      h2 {
+        color: #333;
+      }
+      textarea {
+        width: 100%;
+        height: 120px;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px 18px;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+      .box {
+        background: #fff;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 6px;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;JavaScript JSON & Crypto Examples&lt;/h1&gt;
+    &lt;!-- A) JSON TEXT -&gt; JS OBJECT --&gt;
+    &lt;div class="box"&gt;
+      &lt;h2&gt;A) Convert JSON Text to JavaScript Object&lt;/h2&gt;
+      &lt;textarea id="jsonInput"&gt;{ "name": "Alice", "age": 25 }&lt;/textarea&gt;
+      &lt;button onclick="convertToObject()"&gt;Convert&lt;/button&gt;
+      &lt;p&gt;&lt;b&gt;Result:&lt;/b&gt; &lt;span id="jsonObjectResult"&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- B) JSON DATE -&gt; Date Object --&gt;
+    &lt;div class="box"&gt;
+      &lt;h2&gt;B) Convert JSON Date String to JavaScript Date&lt;/h2&gt;
+      &lt;textarea id="dateInput"&gt;
+{ "event": "Meeting", "date": "2025-11-17T10:00:00Z" }&lt;/textarea
+      &gt;
+      &lt;button onclick="convertDate()"&gt;Convert&lt;/button&gt;
+      &lt;p&gt;&lt;b&gt;Date Object:&lt;/b&gt; &lt;span id="dateResult"&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- C) JSON &lt;-&gt; CSV --&gt;
+    &lt;div class="box"&gt;
+      &lt;h2&gt;C) JSON ↔ CSV Conversion&lt;/h2&gt;
+      &lt;h3&gt;JSON to CSV&lt;/h3&gt;
+      &lt;textarea id="jsonCSVInput"&gt;
+[
+{ "name": "John", "age": 30 },
+{ "name": "Emma", "age": 22 }
+]&lt;/textarea
+      &gt;
+      &lt;button onclick="jsonToCSV()"&gt;Convert JSON → CSV&lt;/button&gt;
+      &lt;textarea id="csvOutput"&gt;&lt;/textarea&gt;
+
+      &lt;h3&gt;CSV to JSON&lt;/h3&gt;
+      &lt;textarea id="csvInput"&gt;
+name,age
+John,30
+Emma,22&lt;/textarea
+      &gt;
+      &lt;button onclick="csvToJSON()"&gt;Convert CSV → JSON&lt;/button&gt;
+      &lt;textarea id="jsonOutput"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;!-- D) HASH STRING --&gt;
+    &lt;div class="box"&gt;
+      &lt;h2&gt;D) Create Hash From String (SHA-256)&lt;/h2&gt;
+      &lt;input
+        type="text"
+        id="hashInput"
+        value="Hello World"
+        style="width: 100%; padding: 8px"
+      /&gt;
+      &lt;button onclick="hashString()"&gt;Hash String&lt;/button&gt;
+      &lt;p&gt;&lt;b&gt;SHA-256 Hash:&lt;/b&gt;&lt;/p&gt;
+      &lt;textarea id="hashOutput"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      // A) JSON TEXT → OBJECT
+      function convertToObject() {
+        try {
+          let obj = JSON.parse(document.getElementById("jsonInput").value);
+          document.getElementById("jsonObjectResult").innerText =
+            JSON.stringify(obj, null, 2);
+        } catch (err) {
+          alert("Invalid JSON");
+        }
+      }
+      // B) JSON DATE STRING → Date Object
+      function convertDate() {
+        let json = JSON.parse(document.getElementById("dateInput").value);
+        let dateObj = new Date(json.date);
+        document.getElementById("dateResult").innerText = dateObj.toString();
+      }
+      // C1) JSON → CSV
+      function jsonToCSV() {
+        let json = JSON.parse(document.getElementById("jsonCSVInput").value);
+        let keys = Object.keys(json[0]);
+        let csv = keys.join(",") + "\n";
+        json.forEach((row) =&gt; {
+          csv += keys.map((k) =&gt; row[k]).join(",") + "\n";
+        });
+        document.getElementById("csvOutput").value = csv;
+      }
+      // C2) CSV → JSON
+      function csvToJSON() {
+        let csv = document.getElementById("csvInput").value.trim().split("\n");
+        let headers = csv[0].split(",");
+        let output = [];
+        for (let i = 1; i &lt; csv.length; i++) {
+          let row = csv[i].split(",");
+          let obj = {};
+          headers.forEach((h, idx) =&gt; (obj[h] = row[idx]));
+          output.push(obj);
+        }
+        document.getElementById("jsonOutput").value = JSON.stringify(
+          output,
+          null,
+          2
+        );
+      }
+      // D) HASH STRING (Browser uses SubtleCrypto)
+      async function hashString() {
+        const text = document.getElementById("hashInput").value;
+        const encoder = new TextEncoder();
+        const data = encoder.encode(text);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray
+          .map((b) =&gt; b.toString(16).padStart(2, "0"))
+          .join("");
+        document.getElementById("hashOutput").value = hashHex;
+      }
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+    </pre>
+  </div>
+  <div><h2>Output</h2></div>
+    <img src="program7output.png" alt="Program7Output" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 🤍 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

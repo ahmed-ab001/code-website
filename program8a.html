@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program8a</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 8A
+      </h1>
+
+      <h2>
+        Develop a PHP program (with HTML/CSS) to keep track of the number of visitors visiting the web page and to display this count of visitors, with relevant headings.
+      </h2>
+      
+    </div>
+    <div>
+      <h2>Instructions to Execute program</h2>
+      <ol>
+        
+        <li>Create a file name called track.php, copy the below code and paste it and save it.</li>
+        <li>Copy track.php file and open XAAMP directory if installed else install it 
+          <a href="https://www.apachefriends.org/download.html" style="color: blue; text-decoration: underline;" >click here</a></li>
+        <li>There you’ll find a folder named “htdocs”.</li>
+        <li>Inside the “htdocs” folder, paste track.php file.</li>
+        <li>After then open your XAAMP and start the Apache server.</li>
+        <li>Open your favorite browser; we recommend using Google Chrome or Mozilla Firefox.</li>
+        <li>Then, go to the URL “http://localhost/track.php“.</li>
+      </ol>
+        
+      
+    </div>
+        
+      </h3>
+    </div>
+    <div>
+      <h2>
+        CODE <br><br>
+        
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <div class="scroll-box">
+    <pre id="prog5">
+&lt;?php
+$counterFile = "counter.txt";
+
+if (!file_exists($counterFile)) {
+    file_put_contents($counterFile, "0");
+}
+
+$currentCount = file_get_contents($counterFile);
+$newCount = $currentCount + 1;
+file_put_contents($counterFile, $newCount);
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Visitor Counter&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            width: 60%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Welcome to Our Website!&lt;/h1&gt;
+        &lt;p&gt;You are visitor number:
+            &lt;strong&gt;&lt;?php echo $newCount; ?&gt;&lt;/strong&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+    </pre>
+  </div>
+  <div><h2>Output</h2></div>
+    <img src="program8aoutput.png" alt="Program8aOutput" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 🤍 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

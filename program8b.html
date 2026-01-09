@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program8b</title>
+    <style>
+        .scroll-box {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;            /* only horizontal scroll */
+      overflow-y: hidden;          /* no vertical scroll */
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    }
+
+    /* --- Code Content --- */
+    pre#prog5 {
+      margin: 0;
+      white-space: pre;           /* preserve formatting */
+      word-wrap: normal;          /* prevent wrapping */
+      font-family: Consolas, monospace;
+      font-size: 14px;
+    }
+
+    /* --- Responsive tweak for mobile --- */
+    @media (max-width: 600px) {
+      pre#prog5 {
+        font-size: 13px;
+      }
+    }
+    </style>
+    <link rel="stylesheet" href="program.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60">
+          <a href="index.html">Home</a></button
+        ><br /><br />
+        Program 8B
+      </h1>
+
+      <h2>
+        Develop a PHP program (with HTML/CSS) to sort the student records which are stored in the database using selection sort.</h2>
+      
+    </div>
+    <div>
+      <h2>Instructions to Execute program</h2>
+      <ol>
+        
+        <li>Create a database name called students or download and import <a href="students.sql" style="color: blue; text-decoration: underline;">click here</a></li>
+        <li>Create a file name called sort_students.php, copy the below code and paste it and save it.</li>
+        <li>Copy sort_students.php file and open XAAMP directory if installed else install it <a href="https://www.apachefriends.org/download.html" style="color: blue; text-decoration: underline;" >click here</a></li>
+        <li>There you’ll find a folder named “htdocs”.</li>
+        <li>Inside the “htdocs” folder, paste sort_students.php file.</li>
+        <li>After then open your XAAMP and start the Apache server.</li>
+        <li>Open your favorite browser; we recommend using Google Chrome or Mozilla Firefox.</li>
+        <li>Then, go to the URL “http://localhost/sort_students.php“.</li>
+      </ol>
+        
+      
+    </div>
+        
+      </h3>
+    </div>
+    <div>
+      <h2>
+        CODE <br><br>
+        
+
+        <button id="copyBtn" class="copy-btn">
+          <span class="copy-icon" id="copyIcon"></span>
+          <span id="copyText">Copy Code</span>
+        </button>
+      </h2>
+    </div>
+    <div class="scroll-box">
+    <pre id="prog5">
+&lt;?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "students";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn-&gt;connect_error) {
+    die("Connection failed: " . $conn-&gt;connect_error);
+}
+
+$sql = "SELECT * FROM students";
+$result = $conn-&gt;query($sql);
+
+$students = [];
+if ($result-&gt;num_rows &gt; 0) {
+    while ($row = $result-&gt;fetch_assoc()) {
+        $students[] = $row;
+    }
+}
+
+function selectionSort(&amp;$arr, $key)
+{
+    $n = count($arr);
+    for ($i = 0; $i &lt; $n - 1; $i++) {
+        $minIndex = $i;
+        for ($j = $i + 1; $j &lt; $n; $j++) {
+            if ($arr[$j][$key] &lt; $arr[$minIndex][$key]) {
+                $minIndex = $j;
+            }
+        }
+
+        $temp = $arr[$i];
+        $arr[$i] = $arr[$minIndex];
+        $arr[$minIndex] = $temp;
+    }
+}
+
+selectionSort($students, 'name');
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Sorted Student Records | vtucode&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4A90E2;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            font-size: 0.9em;
+            color: #555;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h2&gt;Sorted Student Records by Name&lt;/h2&gt;
+
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;USN&lt;/th&gt;
+                &lt;th&gt;Branch&lt;/th&gt;
+                &lt;th&gt;Email&lt;/th&gt;
+                &lt;th&gt;Address&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+            &lt;?php foreach ($students as $student): ?&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['id']); ?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['name']); ?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['usn']); ?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['branch']); ?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['email']); ?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?php echo htmlspecialchars($student['address']); ?&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;?php endforeach; ?&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+    </pre>
+  </div>
+  <div><h2>Output</h2></div>
+    <img src="program8boutput.png" alt="Program8bOutput" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 🤍 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+    <script>
+      document.getElementById("copyBtn").addEventListener("click", function () {
+        const code = document.getElementById("prog5").innerText;
+
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = code;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        const toast = document.getElementById("toast");
+        const copyText = document.getElementById("copyText");
+        const copyIcon = document.getElementById("copyIcon");
+
+        copyText.textContent = "Copied!";
+        copyIcon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Code";
+          copyIcon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

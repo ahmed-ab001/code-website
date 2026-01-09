@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program10</title>
+
+    <style>
+      .scroll-box {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        border: 2px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      pre#prog5 {
+        margin: 0;
+        white-space: pre;
+        word-wrap: normal;
+        font-family: Consolas, monospace;
+        font-size: 14px;
+      }
+
+      @media (max-width: 600px) {
+        pre#prog5 {
+          font-size: 13px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="program.css" />
+  </head>
+
+  <body>
+    <div>
+      <h1>
+        <button class="homebutton" style="position: absolute; left: 60;">
+          <a href="index.html">Home</a>
+        </button>
+        <br /><br />
+
+            Program 10
+        </h1>
+        
+        <h2>Develop a JavaScript program with Ajax (with HTML/CSS) for:</h2>
+        
+        <h3>
+            <ol type="a">
+                <li>Use ajax() method (without Jquery) to add the text content.</li>
+                <li>Use ajax() method (with Jquery) to add the text content.</li>
+                <li>Illustrate getJSON() method in jQuery.</li>
+                <li>Illustrate parseJSON() method.</li>
+            </ol>
+        </h3>
+    </div>
+
+    <!-- ================= TEXT FILE ================= -->
+    <div>
+
+        <h2>
+            textfile.txt <br /><br />
+            <button id="copyTextBtn" class="copy-btn">
+                <span class="copy-icon" id="textIcon"></span>
+                <span id="textLabel">Copy Text</span>
+            </button>
+        </h2>
+        
+    </div>
+    <div class="scroll-box">
+        <pre id="textContent">hi this is example text...</pre>
+    </div>
+
+    <!-- ================= JSON FILE ================= -->
+     <div>
+
+         <h2>
+             data.json <br /><br />
+             <button id="copyJsonBtn" class="copy-btn">
+                 <span class="copy-icon" id="jsonIcon"></span>
+                 <span id="jsonLabel">Copy JSON</span>
+                </button>
+            </h2>
+    </div>
+
+    <div class="scroll-box">
+      <pre id="jsonContent">
+{"name":"John Doe","age":30,"city":"New York","skills":["JavaScript","React","Node.js"],"address":{"street":"123 Elm Street","zipcode":"10001"},"projects":[{"name":"Website Redesign","year":2023,"technologies":["HTML","CSS","JavaScript"]},{"name":"Mobile App","year":2024,"technologies":["React Native","Expo"]}]}      </pre>
+    </div>
+
+    <!-- ================= CODE ================= -->
+    <div>
+
+        <h2>
+            CODE <br /><br />
+            <button id="copyCodeBtn" class="copy-btn">
+                <span class="copy-icon" id="codeIcon"></span>
+                <span id="codeLabel">Copy Code</span>
+            </button>
+        </h2>
+    </div>
+
+    <div class="scroll-box">
+      <pre id="prog5">
+&lt;!DOCTYPE html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;AJAX Examples | vtucode&lt;/title&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px 0;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
+        }
+
+        button:focus {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
+        }
+
+        #output {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #output.plain-ajax {
+            background-color: #f0f8ff;
+            border: 1px solid #b0c4de;
+        }
+
+        #output.jquery-ajax {
+            background-color: #f5fffa;
+            border: 1px solid #98fb98;
+        }
+
+        #output.jquery-json {
+            background-color: #fffaf0;
+            border: 1px solid #ffd700;
+        }
+
+        #output.parse-json {
+            background-color: #fff0f5;
+            border: 1px solid #ff69b4;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;AJAX Examples&lt;/h1&gt;
+
+    &lt;div id="content"&gt;
+        &lt;button id="plain-ajax-btn"&gt;Load Text (Plain AJAX)&lt;/button&gt;
+        &lt;button id="jquery-ajax-btn"&gt;Load Text (jQuery AJAX)&lt;/button&gt;
+        &lt;button id="jquery-json-btn"&gt;Load JSON (jQuery getJSON)&lt;/button&gt;
+        &lt;button id="parse-json-btn"&gt;Load and Parse JSON (jQuery get)&lt;/button&gt;
+        &lt;div id="output"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+
+        function showOutput(className) {
+            const output = document.getElementById('output');
+            output.className = className;
+            output.style.display = 'block';
+        }
+
+        document.getElementById('plain-ajax-btn').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'textfile.txt', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById('output').innerText = xhr.responseText;
+                } else {
+                    document.getElementById('output').innerText = 'Error loading file.';
+                }
+                showOutput('plain-ajax');
+            };
+            xhr.send();
+        });
+
+        $('#jquery-ajax-btn').on('click', function () {
+            $.ajax({
+                url: 'textfile.txt',
+                method: 'GET',
+                success: function (data) {
+                    $('#output').text(data);
+                },
+                error: function () {
+                    $('#output').text('Error loading file.');
+                }
+            }).always(function () {
+                showOutput('jquery-ajax');
+            });
+        });
+
+        $('#jquery-json-btn').on('click', function () {
+            $.getJSON('data.json')
+                .done(function (data) {
+                    $('#output').text(JSON.stringify(data, null, 2));
+                })
+                .fail(function () {
+                    $('#output').text('Error loading JSON file.');
+                })
+                .always(function () {
+                    showOutput('jquery-json');
+                });
+        });
+
+        $('#parse-json-btn').on('click', function () {
+            $.get('data.json')
+                .done(function (data) {
+                    try {
+                        let jsonData;
+                        if (typeof data === 'string') {
+                            jsonData = JSON.parse(data);
+                        } else {
+                            jsonData = data;
+                        }
+                        $('#output').text(JSON.stringify(jsonData, null, 2));
+                    } catch (e) {
+                        $('#output').text('Error parsing JSON: ' + e.message);
+                    }
+                })
+                .fail(function () {
+                    $('#output').text('Error loading JSON file.');
+                })
+                .always(function () {
+                    showOutput('parse-json');
+                });
+        });
+
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</body>
+
+</html>
+      </pre>
+    </div>
+    <div><h2>Output</h2></div>
+    <img src="program10output.png" alt="Program10Output" />
+
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <footer>
+      <h5>Made with 🤍 by <span>&nbsp;Ahmed&nbsp;</span></h5>
+    </footer>
+
+    <!-- ================= JS (MINIMAL CHANGES) ================= -->
+    <script>
+      /* COPY TEXT */
+      document.getElementById("copyTextBtn").addEventListener("click", function () {
+        copyContent("textContent", "textLabel", "textIcon", "Copy Text");
+      });
+
+      /* COPY JSON */
+      document.getElementById("copyJsonBtn").addEventListener("click", function () {
+        copyContent("jsonContent", "jsonLabel", "jsonIcon", "Copy JSON");
+      });
+
+      /* COPY CODE */
+      document.getElementById("copyCodeBtn").addEventListener("click", function () {
+        copyContent("prog5", "codeLabel", "codeIcon", "Copy Code");
+      });
+
+      /* COMMON COPY LOGIC (SAME STYLE AS YOURS) */
+      function copyContent(contentId, labelId, iconId, resetText) {
+        const content = document.getElementById(contentId).innerText;
+
+        const temp = document.createElement("textarea");
+        temp.value = content;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+
+        showToast(labelId, iconId, resetText);
+      }
+
+      /* TOAST */
+      function showToast(labelId, iconId, resetText) {
+        const toast = document.getElementById("toast");
+        const label = document.getElementById(labelId);
+        const icon = document.getElementById(iconId);
+
+        label.textContent = "Copied!";
+        icon.className = "check-icon";
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          label.textContent = resetText;
+          icon.className = "copy-icon";
+          toast.classList.remove("show");
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>
